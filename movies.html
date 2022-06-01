@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#808080" />
+
+    <link rel="stylesheet" href="src/master.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="images/icon/polaroid-192.png" />
+  </head>
+
+  <body>
+    <!-- your content here... -->
+    <div class="container-div">
+      <!-- sidebar -->
+      <div class="sidebar">
+        <div
+          style="
+            display: flex;
+            width: 100%;
+            height: 120px;
+            justify-content: center;
+          "
+        >
+          <h2
+            style="
+              color: black;
+              font-family: merry;
+              margin-top: 45px;
+              font-size: 22px;
+              padding: 15px;
+              letter-spacing: 1px;
+              width: 90%;
+              margin-left: 5%;
+              margin-right: 5%;
+            "
+          >
+            Use the search box to find a film script.
+          </h2>
+        </div>
+      </div>
+
+      <!--main header-->
+      <div class="main-header">
+        <h1>Find Scripts</h1>
+        <img src="./images/icon/white.png" class="search-icon" />
+        <input
+          type="text"
+          onkeydown="searchMovies()"
+          id="search-id"
+          placeholder=""
+        />
+      </div>
+
+      <!--content-->
+      <div class="content" id="movie-id">
+        <div class="scripts-num" id="scriptmid">0 / 0</div>
+        <div class="meter">
+          <div id="progress"></div>
+          <p id="tempid2"></p>
+        </div>
+      </div>
+    </div>
+    <!--navigation-->
+    <div class="navigation">
+      <a href="index.html">Flickr Search</a>
+      <a href="movies.html">Script Search</a>
+    </div>
+    <script src="src/index.js"></script>
+    <script src="src/moviesSearch.js"></script>
+  </body>
+</html>
