@@ -213,8 +213,37 @@ function searchFlickr(e) {
 
   jsonp(
     "https://api.flickr.com/services/feeds/photos_public.gne?tags=" +
-      e.target.value +
-      "&lang=en-us&format=json&jsoncallback=jsonFlickrFeed"
+    e.target.value +
+    "&lang=en-us&format=json&jsoncallback=jsonFlickrFeed"
+  );
+}
+
+function searchFlickr1(val) {
+  document.getElementById("tempid").innerHTML = "searching flicker";
+  document.getElementById("tempid1").style.display = "none";
+  document.getElementById("tempid").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("tempid").style.display = "none";
+  }, 1000);
+
+  allbtns = document
+    .getElementById("sidebar-id")
+    .getElementsByTagName("button");
+
+  for (var i = 0; i < allbtns.length; i++) {
+    allbtns[i].style.backgroundColor = "lightgray";
+    allbtns[i].disabled = true;
+  }
+
+  //console.log("in search");
+  listItems = [];
+
+  // callback to display returned image data
+
+  jsonp(
+    "https://api.flickr.com/services/feeds/photos_public.gne?tags=" +
+    val +
+    "&lang=en-us&format=json&jsoncallback=jsonFlickrFeed"
   );
 }
 
@@ -222,3 +251,8 @@ function disappear() {
   document.body.style.overflow = "visible";
   document.getElementById("overscreen-outside").style.display = "none";
 }
+
+document.getElementById("search-by-typing-btn").addEventListener("click", () => {
+  let searchItem = document.getElementById("search-item-flickr").value
+  searchFlickr1(searchItem)
+})
